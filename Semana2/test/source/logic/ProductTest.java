@@ -8,8 +8,8 @@ class ProductTest {
 
     @Test
     void getIVA() {
-        Product jabon = new Product("2342","Jabon Rey",2_500.0,300,(byte)5,TypeProduct.VIVERES);
+        Product jabon = new Product("3453","Jabon Rey",3500.0,400,(byte)5, TypeProduct.VIVERES);
 
-        assertEquals(300,jabon.getIVA());
+        assertEquals(420, jabon.getIVA());
     }
 }

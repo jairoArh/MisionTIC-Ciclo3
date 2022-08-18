@@ -66,15 +66,16 @@ public class Product {
     }
 
     public double getIVA(){
-        switch (typeProduct){
-            case VIVERES : return getValue() * 0.12;
 
-            case LICORES: return getValue()  * 0.19;
+        return switch (typeProduct){
+            case LICORES -> getValue() * 0.19;
 
-            case MEDICAMENTOS: return getValue()  * 0.16;
-        }
+            case VIVERES -> getValue() * 0.12;
 
-        return 0.0;
+            case MEDICAMENTOS -> getValue() * 0.14;
+
+            default -> 0.0;
+        };
     }
 
     @Override
