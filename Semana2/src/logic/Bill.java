@@ -38,10 +38,12 @@ public class Bill {
 
     public boolean addDetail(Detail detail ){
 
-        if( detail.getCant()  <= (detail.getProduct().getStock() - detail.getProduct().getStockMin())){
+        Product product = detail.getProduct();
+
+        if( detail.getCant()  <= (product.getStock() - product.getStockMin())){
             details.add( detail );
             //Actualizar las existencias (stock) del producto
-            detail.getProduct().setStock( detail.getProduct().getStock() - detail.getCant() );
+            product.setStock( product.getStock() - detail.getCant() );
 
             return true;
         }
@@ -59,5 +61,40 @@ public class Bill {
 
         return total;
 
+    }
+
+    public double getIVA(){
+        double total = 0.0;
+
+        for( Detail detail : details ){
+            total += detail.getIVA();
+        }
+
+        return total;
+    }
+
+    public String[][] printBill(){
+        //Datos primitivos byte, short, int, long, float, double, boolean
+        //Clases Wrapper Byte, Short, Integer, Long, Float, Double
+
+        String[][] data = new String[details.size() + 1][5];
+
+        int cont = 0;
+
+        for( Detail detail : details ){
+            data[cont][0] = detail.getProduct().getDescription();
+            data[cont][1] = Short.toString( detail.getCant() );
+            data[cont][2] = Double.toString( detail.getProduct().getValue());
+            data[cont][3] = Double.toString( detail.getIVA());
+            data[cont++][4] = Double.toString( detail.getSubtotal());
+        }
+
+        data[cont][0] = null;
+        data[cont][1] = null;
+        data[cont][2] = Double.toString( getIVA());
+        data[cont][3] = Double.toString( getTotal());
+        data[cont][4] = Double.toString( getIVA() + getTotal( ) );
+
+        return data;
     }
 }

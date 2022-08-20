@@ -324,13 +324,30 @@
 											"height": 13,
 											"text": "+getIVA(): double",
 											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGCu3gGO81bffI=",
+											"_parent": {
+												"$ref": "AAAAAAGCl8oBcVu4dho="
+											},
+											"model": {
+												"$ref": "AAAAAAGCu3gGCc1Y49E="
+											},
+											"font": "Arial;13;0",
+											"left": 517,
+											"top": 523,
+											"width": 180.99072265625,
+											"height": 13,
+											"text": "+printiBill(): String<><>",
+											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 512,
 									"top": 383,
 									"width": 190.99072265625,
-									"height": 143
+									"height": 158
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -370,7 +387,7 @@
 							"left": 512,
 							"top": 320,
 							"width": 190.99072265625,
-							"height": 206,
+							"height": 221,
 							"nameCompartment": {
 								"$ref": "AAAAAAGCl8oBcFuyzD4="
 							},
@@ -553,7 +570,7 @@
 											"top": 155,
 											"width": 311.0859375,
 											"height": 13,
-											"text": "-cant: int",
+											"text": "-stock: int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2342,6 +2359,25 @@
 									"direction": "return"
 								}
 							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGCu3gGCc1Y49E=",
+							"_parent": {
+								"$ref": "AAAAAAGCl8oBb1uv5uQ="
+							},
+							"name": "printiBill",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGCu3gvaM2M/a8=",
+									"_parent": {
+										"$ref": "AAAAAAGCu3gGCc1Y49E="
+									},
+									"type": "String<><>",
+									"direction": "return"
+								}
+							]
 						}
 					]
 				},
@@ -2423,7 +2459,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGCl8od6lvZsP0="
 							},
-							"name": "cant",
+							"name": "stock",
 							"visibility": "private",
 							"type": "int"
 						},

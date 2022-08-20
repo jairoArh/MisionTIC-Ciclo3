@@ -28,6 +28,11 @@ public class Detail {
 
     public double getSubtotal(){
 
-        return cant * product.getValue() + ( product.getIVA() * cant );
+        //return cant * product.getValue() + ( product.getIVA() * cant );
+        return cant * product.getValue();
+    }
+
+    public double getIVA(){
+        return product.getIVA() * cant;
     }
 }

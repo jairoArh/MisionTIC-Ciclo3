@@ -20,7 +20,15 @@ class DetailTest {
     void getSubtotal() {
         setup();
 
-        assertEquals( 39_200, detail.getSubtotal());
-        assertEquals( 285600,detail2.getSubtotal());
+        assertEquals( 35_000, detail.getSubtotal());
+        assertEquals( 240_000,detail2.getSubtotal());
+    }
+
+    @Test
+    void getIVA(){
+        setup();
+
+        assertEquals( 4200, detail.getIVA());
+        assertEquals( 45_600,detail2.getIVA());
     }
 }
