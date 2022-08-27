@@ -136,7 +136,7 @@
 											"top": 91,
 											"width": 253.3095703125,
 											"height": 13,
-											"text": "-number: String",
+											"text": "#number: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -153,7 +153,7 @@
 											"top": 106,
 											"width": 253.3095703125,
 											"height": 13,
-											"text": "-dateOpen: Localdate",
+											"text": "#dateOpen: Localdate",
 											"horizontalAlignment": 0
 										},
 										{
@@ -170,7 +170,7 @@
 											"top": 121,
 											"width": 253.3095703125,
 											"height": 13,
-											"text": "-residue: double",
+											"text": "#residue: double",
 											"horizontalAlignment": 0
 										},
 										{
@@ -188,7 +188,7 @@
 											"width": 253.3095703125,
 											"height": 13,
 											"underline": true,
-											"text": "-interesRate: double",
+											"text": "+INTEREST_RATE: double = 0.06",
 											"horizontalAlignment": 0
 										}
 									],
@@ -329,23 +329,6 @@
 										},
 										{
 											"_type": "UMLOperationView",
-											"_id": "AAAAAAGCuPse+oUs04Q=",
-											"_parent": {
-												"$ref": "AAAAAAGCuOXHk4M+2zI="
-											},
-											"model": {
-												"$ref": "AAAAAAGCuPse2IUptBs="
-											},
-											"font": "Arial;13;0",
-											"left": 341,
-											"top": 264,
-											"width": 253.3095703125,
-											"height": 13,
-											"text": "+getInterestRate(): double",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLOperationView",
 											"_id": "AAAAAAGCuOzegYR2gqA=",
 											"_parent": {
 												"$ref": "AAAAAAGCuOXHk4M+2zI="
@@ -355,7 +338,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 341,
-											"top": 279,
+											"top": 264,
 											"width": 253.3095703125,
 											"height": 13,
 											"text": "+deposit(double): double",
@@ -366,7 +349,7 @@
 									"left": 336,
 									"top": 154,
 									"width": 263.3095703125,
-									"height": 143
+									"height": 128
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -1432,7 +1415,7 @@
 								"$ref": "AAAAAAGCuOXHkoM1PhM="
 							},
 							"name": "number",
-							"visibility": "private",
+							"visibility": "protected",
 							"type": "String"
 						},
 						{
@@ -1442,7 +1425,7 @@
 								"$ref": "AAAAAAGCuOXHkoM1PhM="
 							},
 							"name": "dateOpen",
-							"visibility": "private",
+							"visibility": "protected",
 							"type": "Localdate"
 						},
 						{
@@ -1452,7 +1435,7 @@
 								"$ref": "AAAAAAGCuOXHkoM1PhM="
 							},
 							"name": "residue",
-							"visibility": "private",
+							"visibility": "protected",
 							"type": "double"
 						},
 						{
@@ -1461,10 +1444,10 @@
 							"_parent": {
 								"$ref": "AAAAAAGCuOXHkoM1PhM="
 							},
-							"name": "interesRate",
-							"visibility": "private",
+							"name": "INTEREST_RATE",
 							"isStatic": true,
-							"type": "double"
+							"type": "double",
+							"defaultValue": "0.06"
 						}
 					],
 					"operations": [
@@ -1482,7 +1465,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGCuOrSAoQUcE4="
 									},
-									"name": "String"
+									"name": "String",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -1490,7 +1474,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGCuOrSAoQUcE4="
 									},
-									"name": "Localdate"
+									"name": "Localdate",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -1498,7 +1483,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGCuOrSAoQUcE4="
 									},
-									"name": "double"
+									"name": "double",
+									"type": ""
 								}
 							]
 						},
@@ -1637,25 +1623,6 @@
 									"_id": "AAAAAAGCuOy5CYRopI8=",
 									"_parent": {
 										"$ref": "AAAAAAGCuOyTOoRhJWY="
-									},
-									"type": "double",
-									"direction": "return"
-								}
-							]
-						},
-						{
-							"_type": "UMLOperation",
-							"_id": "AAAAAAGCuPse2IUptBs=",
-							"_parent": {
-								"$ref": "AAAAAAGCuOXHkoM1PhM="
-							},
-							"name": "getInterestRate",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGCuPtLA4UwWyk=",
-									"_parent": {
-										"$ref": "AAAAAAGCuPse2IUptBs="
 									},
 									"type": "double",
 									"direction": "return"

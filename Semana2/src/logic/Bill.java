@@ -10,6 +10,8 @@ public class Bill {
 
     private ArrayList<Detail> details;
 
+    private static String typePay = "EFECTIVO";
+
     public Bill(String number, LocalDate dateBill) {
         this.number = number;
         this.dateBill = dateBill;
@@ -34,6 +36,10 @@ public class Bill {
 
     public ArrayList<Detail> getDetails() {
         return (ArrayList<Detail>) details.clone();
+    }
+
+    public static String getTypePay() {
+        return typePay;
     }
 
     public boolean addDetail(Detail detail ){

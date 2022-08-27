@@ -24,6 +24,7 @@ public class Runner {
         Product ron = new Product("7654","Ron Boyacá",65_000,30,(byte)5,TypeProduct.LICORES);
         Product ibuprofeno = new Product("3646","Ibuprofeno",12_500,76,(byte)10,TypeProduct.MEDICAMENTOS);
 
+
         bill.addDetail( new Detail( soap,(short)10 ));
         bill.addDetail( new Detail(ron,(short)5));
         bill.addDetail( new Detail(rice,(short)1));
