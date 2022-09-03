@@ -1,6 +1,7 @@
 package edu.udea.api.entities;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name="dishes")
@@ -80,6 +81,19 @@ public class Dish {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Dish dish = (Dish) o;
+        return id == dish.id && Double.compare(dish.price, price) == 0 && name.equals(dish.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, price);
     }
 
     @Override

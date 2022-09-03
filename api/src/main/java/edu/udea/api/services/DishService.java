@@ -2,34 +2,59 @@ package edu.udea.api.services;
 
 import edu.udea.api.entities.Dish;
 import edu.udea.api.entities.ListDish;
+import edu.udea.api.repositories.DishRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
+@Service
 public class DishService {
-    private ListDish listDish;
+    private DishRepository dishRepository;
 
-    public DishService() {
-        listDish = new ListDish("Carnes");
+    public DishService(DishRepository dishRepository) {
+        this.dishRepository = dishRepository;
     }
 
-    public ArrayList<Dish> getAll(){
-        return listDish.getList();
-    }
-
-    public Dish findById( int id ){
-        return listDish.findDish( id );
+    public List<Dish> getAllDishes(){
+        return dishRepository.findAll();
     }
 
     public Dish addDish( Dish dish ){
-        return listDish.addDish( dish ) ? dish : null;
+        return dishRepository.save( dish );
     }
 
+    public Dish findById(int id ){
+        Optional<Dish> optDish = dishRepository.findById( id );
+        if( optDish.isPresent()){
+
+            return optDish.get();
+        }
+
+        return null;
+    }
+
+    /***
+     * Permite actualizar un objeto
+     * Precondicion: El objeto existe
+     * Poscondicion: si existe se modifica
+     * @param dish referencia del objeto que se actualiza
+     * @return objeto actualizado
+     */
     public Dish updateDish( Dish dish ){
-        return listDish.updateDish( dish );
+        return dishRepository.save( dish );
     }
 
-    public Dish deleteDish( int id ){
+    /***
+     * Permite eliminar un objeto
+     * precondicion: el objeto existe
+     * Poscondicion: si existe se elimina
+     * @param dish referencia del objeto que se elimina
+     * @return objeto eliminado
+     */
+    public void deleteDish( Dish dish ){
 
-        return listDish.deleteDish( listDish.findDish( id ) );
+        dishRepository.delete( dish );
     }
 }
