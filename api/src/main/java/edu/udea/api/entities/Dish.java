@@ -1,14 +1,23 @@
 package edu.udea.api.entities;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="dishes")
 public class Dish {
+    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
 
+    @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
     private double price;
 
+    @Column(nullable = false)
     private short calories;
 
+    @Column(nullable = false,name = "is_vegetarian")
     private boolean isVegetarian;
 
     private String image;
