@@ -1,11 +1,32 @@
 package edu.udea.api.entities;
 
+import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
+@Entity
 public class ListDish {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private int id;
+
+    @Column(nullable = false, length = 30)
     private String description;
 
-    private ArrayList<Dish> list;
+    /*
+    @OneToOne
+    @JoinColumn(name = "ref_list",nullable = false, foreignKey = @ForeignKey(name="fk_list_dish"))
+    private Dish dish;
+     */
+
+    /*@OneToMany(mappedBy = "dish")
+    @JoinColumn(name = "ref_list",nullable = false, foreignKey = @ForeignKey(name="fk_list_dish"))*
+     */
+    @Transient
+    private List<Dish> list;
+
+    public ListDish() {
+    }
 
     public ListDish(String description) {
         this.description = description;
@@ -57,11 +78,27 @@ public class ListDish {
         return null;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public String getDescription() {
         return description;
     }
 
     public ArrayList<Dish> getList() {
-        return (ArrayList<Dish>) list.clone();
+        return (ArrayList<Dish>) list;
+    }
+
+    public void setList(List<Dish> list) {
+        this.list = list;
     }
 }

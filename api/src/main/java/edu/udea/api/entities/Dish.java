@@ -23,16 +23,21 @@ public class Dish {
 
     private String image;
 
+    @ManyToOne
+    @JoinColumn(name = "ref_list",nullable = false, foreignKey = @ForeignKey(name="fk_list_dish",value = ConstraintMode.PROVIDER_DEFAULT))
+    private ListDish listDish;
+
     public Dish() {
     }
 
-    public Dish(int id, String name, double price, short calories, boolean isVegetarian, String image) {
+    public Dish(int id, String name, double price, short calories, boolean isVegetarian, String image, ListDish listDish) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.calories = calories;
         this.isVegetarian = isVegetarian;
         this.image = image;
+        this.listDish = listDish;
     }
 
     public int getId() {
@@ -81,6 +86,14 @@ public class Dish {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public ListDish getListDish() {
+        return listDish;
+    }
+
+    public void setListDish(ListDish listDish) {
+        this.listDish = listDish;
     }
 
     @Override

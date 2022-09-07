@@ -9,8 +9,8 @@ class ListDishTest {
 
     private void setup(){
         listDish = new ListDish("Carnes");
-        listDish.addDish( new Dish(10,"Carne a la Plancha",32_500.0,(short)320,false,null));
-        listDish.addDish( new Dish(20,"Tomahawk",72_000.0,(short)500,false,null));
+        listDish.addDish( new Dish(10,"Carne a la Plancha",32_500.0,(short)320,false,null,null));
+        listDish.addDish( new Dish(20,"Tomahawk",72_000.0,(short)500,false,null,null));
     }
 
     @Test
@@ -26,18 +26,18 @@ class ListDishTest {
     @Test
     void addDish() {
         listDish = new ListDish("Carnes");
-        assertTrue( listDish.addDish( new Dish(10,"Carne a la Plancha",32_500.0,(short)320,false,null)));
-        assertFalse( listDish.addDish( new Dish(10,"Tomahawk",72_000.0,(short)500,false,null)));
-        assertTrue( listDish.addDish( new Dish(20,"Tomahawk",72_000.0,(short)500,false,null)));
+        assertTrue( listDish.addDish( new Dish(10,"Carne a la Plancha",32_500.0,(short)320,false,null,null)));
+        assertFalse( listDish.addDish( new Dish(10,"Tomahawk",72_000.0,(short)500,false,null,null)));
+        assertTrue( listDish.addDish( new Dish(20,"Tomahawk",72_000.0,(short)500,false,null,null)));
     }
 
     @Test
     void updateDish() {
         setup();
-        Dish dish = new Dish(10,"Bisteck a Caballo",23_000,(short)270,false,null);
+        Dish dish = new Dish(10,"Bisteck a Caballo",23_000,(short)270,false,null,null);
         assertNotNull( listDish.updateDish( dish ) );
         assertEquals("Bisteck a Caballo",listDish.findDish( 10 ).getName());
-        dish = new Dish(30,"Bisteck a lo Pobre",23_000,(short)270,false,null);
+        dish = new Dish(30,"Bisteck a lo Pobre",23_000,(short)270,false,null,null);
         assertNull( listDish.updateDish( dish ));
     }
 
