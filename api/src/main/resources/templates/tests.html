@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymelaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Title</title>
+    <style>
+        table tr td{
+            border: 1px solid
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejemplo de Interacción con Thymeleaf</h1>
+    <span th:text="|Hola ${#strings.toUpperCase(name)} Cómo estás? tienes ${age} años|">Nombre</span>
+
+    <h2>Expresiones de Utilidad</h2>
+    <h3>String</h3>
+    <h4>toString()</h4>
+    <p th:text="${#strings.toString(dish)}"></p>
+    <h4>contains</h4>
+    <p th:text="${#strings.contains(dish.name,'Pollo')}"></p>
+
+    <h3>Listas</h3>
+    <p th:text="${dishes}"></p>
+    <p th:text="'Se recibieron ' + ${#lists.size(dishes)} + ' Platos'"></p>
+    <p th:text="${#lists.sort(dishes)}"></p>
+
+    <h3>Numbers</h3>
+    <p th:text="|El valor del Plato (entero) es ${#numbers.formatInteger(dish.price,2,'POINT')}|"></pth>
+    <p th:text="|El valor del Plato (decimal) es ${#numbers.formatDecimal(dish.price,3,2)}|"></pth>
+    <!--h4>Secuencias</h4>
+    <p th:text="${#numbers.secuence(10,50)}"></p-->
+
+    <h3>Literales</h3>
+    <h4>Literales Numéricos</h4>
+    <p>The year is <span th:text="2013">1492</span>.</p>
+    <p>In two years, it will be <span th:text="2013 + 2">1494</span>.</p>
+
+    <h4>Literales Booleanos</h4>
+    <p th:if="${gender}">
+        El Genero es Verdadero
+    </p>
+
+    <h4>Comparadores e Igualdad</h4>
+    <div th:if="${age} &gt 18">
+        <span>Mayor de Edad</span>
+    </div>
+
+    <p th:text="${age &gt 17} ? 'Mayor de Edad' : 'Menor de Edad'"></p>
+
+    <h3>Expresiones por Defecto</h3>
+    <p>Age: <span th:text="*{ages}?: 'No se ha especificado Edad'">27</span>.</p>
+    Otra sintaxis
+    <p>Age: <span th:text="*{ages != null}? *{age} : 'No se ha especificado Edad'">27</span>.</p>
+
+    <h3>Iteradores</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Calories</th>
+                <th>Vegetariano</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="dish : ${dishes}">
+                <td th:text="${dish.id}"></td>
+                <td th:text="${dish.name}"></td>
+                <td th:text="${#numbers.formatCurrency(dish.price)}"></td>
+                <td th:text="${dish.calories}"></td>
+                <td th:text="${dish.isVegetarian} ? 'ES VEGETARIANO' : 'NO ES VEGETARIANO'"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Evaluaión Condicional</h3>
+    <!--Permite la funcionalidad de un IF - ELSE de los lenguajes de Programación-->
+    <div>
+        <span th:if="${gender}">Masculino</span>
+        <span th:unless="${gender}">Femenino</span>
+    </div>
+
+    <h4>Estado Civil</h4>
+    <h4>Selección Múltiple</h4>
+        <div th:switch="${state}">
+            <p th:case="${1}">Solter@</p>
+            <p th:case="${2}">Casad@</p>
+            <p th:case="${3}">Separad@</p>
+            <p th:case="${4}">Viud@</p>
+            <p th:case="${5}">Unión Marital de Hecho</p>
+            <p th:case="*">Otro Estado</p>
+        </div>
+</body>
+</html>
