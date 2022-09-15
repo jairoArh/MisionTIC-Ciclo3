@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="layouts/layout-main :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header th:insert="layouts/layout-main :: navbar">
+
+</header>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1 th:text="${title}">xdxdxdxd</h1>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <theader>
+                    <th>Id Tipo Plato</th>
+                    <th>Descripción</th>
+                </theader>
+                <tbody>
+                    <tr th:each="typeDish : ${listDishes}">
+                        <td th:text="${typeDish.id}"></td>
+                        <td th:text="${typeDish.description}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<span th:replace="layouts/layout-main :: footer"></span>
+</body>
+</html>

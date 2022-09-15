@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="layouts/layout-main :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header th:insert="layouts/layout-main :: navbar">
+</header>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h1 th:text="${title}">xdxdxdxd</h1>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <theader>
+                        <tr>
+                            <th>id Plato</th>
+                            <th>Nombre Plato</th>
+                            <th>Valor</th>
+                            <th>Calorias</th>
+                            <th>Vegetariano</th>
+                            <th>Tipo de Plato</th>
+                        </tr>
+                    </theader>
+                    <tbody>
+                        <tr th:each="dish : ${dishes}">
+                            <td th:text="${dish.id}"></td>
+                            <td th:text="${dish.name}"></td>
+                            <td th:text="${#numbers.formatCurrency(dish.price)}"></td>
+                            <td th:text="${dish.calories}"></td>
+                            <td th:text="${dish.isVegetarian ? 'SI' : 'NO'}"></td>
+                            <td th:text="${dish.listDish.description}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-primary">Crear Nuevo Plato</button>
+            </div>
+        </div>
+    </div>
+
+<span th:replace="layouts/layout-main :: footer"></span>
+</body>
+</html>

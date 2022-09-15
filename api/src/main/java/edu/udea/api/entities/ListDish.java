@@ -21,7 +21,7 @@ public class ListDish {
 
     /*@OneToMany(mappedBy = "dish")
     @JoinColumn(name = "ref_list",nullable = false, foreignKey = @ForeignKey(name="fk_list_dish"))*
-     */
+*/
     @Transient
     private List<Dish> list;
 
@@ -100,5 +100,13 @@ public class ListDish {
 
     public void setList(List<Dish> list) {
         this.list = list;
+    }
+
+    @Override
+    public String toString() {
+        return "ListDish{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

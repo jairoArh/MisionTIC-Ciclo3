@@ -117,7 +117,7 @@ public class Dish {
                 ", price=" + price +
                 ", calories=" + calories +
                 ", isVegetarian=" + isVegetarian +
-                ", image='" + image + '\'' +
+                ", listDish=" + listDish +
                 '}';
     }
 }
