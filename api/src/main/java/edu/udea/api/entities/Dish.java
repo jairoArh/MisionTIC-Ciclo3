@@ -19,7 +19,7 @@ public class Dish {
     private short calories;
 
     @Column(nullable = false,name = "is_vegetarian")
-    private boolean isVegetarian;
+    private boolean vegetarian;
 
     private String image;
 
@@ -30,12 +30,12 @@ public class Dish {
     public Dish() {
     }
 
-    public Dish(int id, String name, double price, short calories, boolean isVegetarian, String image, ListDish listDish) {
+    public Dish(int id, String name, double price, short calories, boolean vegetarian, String image, ListDish listDish) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.calories = calories;
-        this.isVegetarian = isVegetarian;
+        this.vegetarian =vegetarian;
         this.image = image;
         this.listDish = listDish;
     }
@@ -73,11 +73,11 @@ public class Dish {
     }
 
     public boolean isVegetarian() {
-        return isVegetarian;
+        return vegetarian;
     }
 
     public void setVegetarian(boolean vegetarian) {
-        isVegetarian = vegetarian;
+        this.vegetarian = vegetarian;
     }
 
     public String getImage() {
@@ -116,7 +116,7 @@ public class Dish {
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 ", calories=" + calories +
-                ", isVegetarian=" + isVegetarian +
+                ", isVegetarian=" + vegetarian +
                 ", listDish=" + listDish +
                 '}';
     }

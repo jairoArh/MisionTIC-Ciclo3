@@ -23,6 +23,7 @@
                             <th>Calorias</th>
                             <th>Vegetariano</th>
                             <th>Tipo de Plato</th>
+                            <th>Gestión</th>
                         </tr>
                     </theader>
                     <tbody>
@@ -33,10 +34,16 @@
                             <td th:text="${dish.calories}"></td>
                             <td th:text="${dish.isVegetarian ? 'SI' : 'NO'}"></td>
                             <td th:text="${dish.listDish.description}"></td>
+                            <td>
+                                <form th:action="@{/dishes/{id}(id=${dish.id})}" th:method="delete">
+                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                </form>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
-                <button class="btn btn-primary">Crear Nuevo Plato</button>
+                
+                <a class="btn btn-primary" href="/views/showForm">Crear Nuevo Plato</a>
             </div>
         </div>
     </div>

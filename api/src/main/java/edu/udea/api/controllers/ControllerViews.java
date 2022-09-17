@@ -49,4 +49,13 @@ public class ControllerViews {
         return "dishes";
     }
 
+    @GetMapping("/showForm")
+    public String showForm( Model model ){
+        model.addAttribute("title","Adicionar Plato");
+        model.addAttribute("dish",new Dish());
+        model.addAttribute("listDish", listDishService.getAllListDish());
+
+        return "newDish";
+    }
+
 }
