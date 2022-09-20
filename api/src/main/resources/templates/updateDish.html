@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="layouts/layout-main :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header th:insert="layouts/layout-main :: navbar">
+</header>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1 th:text="|${title} ${#strings.toString(dish)}|">xdxdxdxd</h1>
+        </div>
+        <div class="card-body">
+            <form class="row g-3" th:action="@{/dishes/{id}(id=${dish.id})}" th:method="patch" th:object="${dish}">
+                <div class="col-12 col-sm-6">
+                    <label for="typeDish" class="form-label">Tipo de Plato</label>
+                    <select id="typeDish" class="form-select" th:field="*{listDish}">
+                        <option th:each="typeDish : ${listDish}" th:value="${typeDish.id}" th:text="${typeDish.description}">Opcion 1</option>
+                    </select>
+                </div>
+
+                <div class="col-12 col-sm-6">
+                    <label for="name" class="form-label">Nombre del Plato</label>
+                    <input type="text" id="name" class="form-control" th:field="*{name}" value='th:text="${dish.name}"'>
+                </div>
+
+                <div class="col-12 col-sm-6">
+                    <label for="price" class="form-label">Valor del Plato</label>
+                    <input type="text" id="price" class="form-control"  th:field="*{price}" value='th:text="${dish.price}}"'>
+                </div>
+
+                <div class="col-12 col-sm-6">
+                    <label for="calories" class="form-label">Calories</label>
+                    <select name="" id="calories" class="form-select" th:field="*{calories}">
+                        <option th:each="cont : ${#numbers.sequence(0,1000)}" th:value="${cont}"  th:text="${cont}"></option>
+                    </select>
+                </div>
+
+                <!--div class="col-12">
+                    <div class="form-check">
+                        <input th:field="*{vegetarian}" type="checkbox" class="form-check-input" id="vegetarian">
+                        <label for="vegetarian">Vegetariano</label>
+                    </div>
+                </div-->
+
+                <div class="col-12">
+                    <button class="btn btn-primary" type="submit">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<span th:replace="layouts/layout-main :: footer"></span>
+</body>
+</html>

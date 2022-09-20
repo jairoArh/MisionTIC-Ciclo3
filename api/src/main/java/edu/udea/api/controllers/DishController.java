@@ -74,4 +74,12 @@ public class DishController {
 
         return null;
     }*/
+
+    @PatchMapping("/{id}")
+    public RedirectView updateDish( @PathVariable int id, @ModelAttribute Dish dish, Model model ){
+
+        System.out.println( dish );
+
+        return null;
+    }
 }

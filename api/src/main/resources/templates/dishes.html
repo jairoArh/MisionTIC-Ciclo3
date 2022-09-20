@@ -38,6 +38,7 @@
                                 <form th:action="@{/dishes/{id}(id=${dish.id})}" th:method="delete">
                                     <button type="submit" class="btn btn-danger">Eliminar</button>
                                 </form>
+                                <a class="btn btn-secondary" th:href="@{/views/{id}(id=${dish.id})}">Actualizar</a>
                             </td>
                         </tr>
                     </tbody>
