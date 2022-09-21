@@ -11,7 +11,7 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
-            <h1 th:text="|${title} ${#strings.toString(dish)}|">xdxdxdxd</h1>
+            <h1 th:text="${title}">Título</h1>
         </div>
         <div class="card-body">
             <form class="row g-3" th:action="@{/dishes/{id}(id=${dish.id})}" th:method="patch" th:object="${dish}">
@@ -39,12 +39,12 @@
                     </select>
                 </div>
 
-                <!--div class="col-12">
+                <div class="col-12">
                     <div class="form-check">
                         <input th:field="*{vegetarian}" type="checkbox" class="form-check-input" id="vegetarian">
                         <label for="vegetarian">Vegetariano</label>
                     </div>
-                </div-->
+                </div>
 
                 <div class="col-12">
                     <button class="btn btn-primary" type="submit">Enviar</button>

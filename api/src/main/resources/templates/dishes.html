@@ -32,7 +32,25 @@
                             <td th:text="${dish.name}"></td>
                             <td th:text="${#numbers.formatCurrency(dish.price)}"></td>
                             <td th:text="${dish.calories}"></td>
-                            <td th:text="${dish.isVegetarian ? 'SI' : 'NO'}"></td>
+
+                            <!--div th:if="${dish.isVegetarian}">
+                                <td style="background: green">&nbsp;</td>
+                            </div>
+                            <div th:unless="${dish.isVegetarian}">
+                                <td style="background: red">&nbsp;</td>
+                            </div-->
+
+                            <td>
+                                <div th:if="${dish.isVegetarian}">
+                                    <span style="background: green">SI es Vegetariano</span>
+                                </div>
+                                <div th:unless="${dish.isVegetarian}">
+                                    <span style="background: red">NO es Vegetariano</span>
+                                </div>
+                            </td>
+
+                            <!--td th:text="${dish.isVegetarian ? 'SI' : 'NO'}"></td-->
+
                             <td th:text="${dish.listDish.description}"></td>
                             <td>
                                 <form th:action="@{/dishes/{id}(id=${dish.id})}" th:method="delete">

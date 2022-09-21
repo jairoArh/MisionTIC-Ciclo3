@@ -41,7 +41,7 @@ public class DishController {
         return dishService.findById( id );
     }
 
-    @PutMapping("/{id}")
+   @PutMapping("/{id}")
     public Dish updateDish(@RequestBody Dish dish ){
 
         if ( dishService.findById( dish.getId() ) != null ){
@@ -76,10 +76,12 @@ public class DishController {
     }*/
 
     @PatchMapping("/{id}")
-    public RedirectView updateDish( @PathVariable int id, @ModelAttribute Dish dish, Model model ){
+    public RedirectView modifyDish(@ModelAttribute Dish dish, Model model ){
 
-        System.out.println( dish );
+        if ( dishService.findById( dish.getId() ) != null ){
+            dishService.updateDish( dish );
+        }
 
-        return null;
+        return new RedirectView("/views/dishes");
     }
 }
